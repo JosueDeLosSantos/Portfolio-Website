@@ -32,13 +32,13 @@ function NavBar() {
 					<li>Tech</li>
 				</a>
 				<a
-					href='#Projects'
+					href='#projects'
 					className='cursor-pointer opacity-70 transition-all duration-300 hover:opacity-100'
 				>
 					<li>Projects</li>
 				</a>
 				<a
-					href='#Contact'
+					href='#contact'
 					className='cursor-pointer opacity-70 transition-all duration-300 hover:opacity-100'
 				>
 					<li>Contact</li>

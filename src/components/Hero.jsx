@@ -1,4 +1,4 @@
-import image from "/public/foto-perfil.jpg";
+import image from "/foto-perfil.jpg";
 import { motion } from "framer-motion";
 
 function Hero() {
