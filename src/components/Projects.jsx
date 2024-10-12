@@ -41,7 +41,7 @@ const ProjectCard = ({ key, project }) => {
 				<div className='flex flex-col gap-5'>
 					<div className='flex flex-col gap-3'>
 						<div className='text-xl font-semibold'>{project.title}</div>
-						<div className='text-gray-400'>{project.description}</div>
+						<div className='text-slate-200'>{project.description}</div>
 					</div>
 					<div className='flex flex-wrap gap-5'>
 						{project.technologies.map((technology, index) => (

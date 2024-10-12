@@ -3,6 +3,7 @@ import {
 	BiLogoMongodb,
 	BiLogoNodejs,
 	BiLogoPostgresql,
+	BiLogoReact,
 	BiLogoTailwindCss,
 	BiLogoTypescript
 } from "react-icons/bi";
@@ -42,6 +43,14 @@ function Techs() {
 					whileInView='visible'
 					transition={{ duration: 0.5 }}
 				>
+					<BiLogoReact className='cursor pointer text-[80px] text-sky-500 transition-all duration-300 hover:-translate-y-5 sm:text-[100px] md:text-[120px]' />
+				</motion.div>
+				<motion.div
+					variants={variants}
+					initial='hidden'
+					whileInView='visible'
+					transition={{ duration: 0.5 }}
+				>
 					<BiLogoTypescript className='cursor pointer text-[80px] text-sky-500 transition-all duration-300 hover:-translate-y-5 sm:text-[100px] md:text-[120px]' />
 				</motion.div>
 				<motion.div
@@ -50,7 +59,7 @@ function Techs() {
 					whileInView='visible'
 					transition={{ duration: 0.5 }}
 				>
-					<BiLogoJavascript className='cursor pointer text-[80px] text-yellow-500 transition-all duration-300 hover:-translate-y-5 sm:text-[100px] md:text-[120px]' />
+					<BiLogoJavascript className='cursor pointer text-[80px] text-yellow-400 transition-all duration-300 hover:-translate-y-5 sm:text-[100px] md:text-[120px]' />
 				</motion.div>
 				<motion.div
 					variants={variants}
@@ -58,8 +67,9 @@ function Techs() {
 					whileInView='visible'
 					transition={{ duration: 0.5 }}
 				>
-					<BiLogoMongodb className='cursor pointer text-[80px] text-green-500 transition-all duration-300 hover:-translate-y-5 sm:text-[100px] md:text-[120px]' />
+					<BiLogoPostgresql className='cursor pointer text-[80px] text-sky-500 transition-all duration-300 hover:-translate-y-5 sm:text-[100px] md:text-[120px]' />
 				</motion.div>
+
 				<motion.div
 					variants={variants}
 					initial='hidden'
@@ -82,7 +92,7 @@ function Techs() {
 					whileInView='visible'
 					transition={{ duration: 0.5 }}
 				>
-					<BiLogoPostgresql className='cursor pointer text-[80px] text-blue-500 transition-all duration-300 hover:-translate-y-5 sm:text-[100px] md:text-[120px]' />
+					<BiLogoMongodb className='cursor pointer text-[80px] text-green-500 transition-all duration-300 hover:-translate-y-5 sm:text-[100px] md:text-[120px]' />
 				</motion.div>
 			</div>
 		</div>
