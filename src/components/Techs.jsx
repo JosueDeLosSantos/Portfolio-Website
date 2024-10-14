@@ -24,7 +24,7 @@ function Techs() {
 	return (
 		<div
 			id='tech'
-			className='min-h-[70vh] w-full flex flex-col items-center justify-center gap-16 md:gap-32'
+			className='min-h-[70vh] pt-32 w-full flex flex-col items-center justify-center gap-16 md:gap-32'
 		>
 			<motion.h1
 				variants={variants}
