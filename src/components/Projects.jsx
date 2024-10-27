@@ -5,8 +5,17 @@ import abletonImage from "/Ableton.jpg";
 import blogCMS from "/main-screen-dark.jpg";
 import memoryGame from "/memory-game.png";
 import cvBuilder from "/CV-builder-content.jpg";
+import shoppingCart from "/shopping-cart.jpg";
 
 const projects = [
+	{
+		image: shoppingCart,
+		title: "Fictional Online Store",
+		description:
+			"This is a fictional online store. It features a responsive design and a cart system with Redux for managing cart items. Technologies used include Vite, React, TypeScript, and Tailwind CSS.",
+		technologies: ["React", "TypeScript", "Tailwind"],
+		link: "https://github.com/JosueDeLosSantos/shopping-cart-ts.git"
+	},
 	{
 		image: youtubeImage,
 		title: "YouTube Home Page",
