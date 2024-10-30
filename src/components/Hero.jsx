@@ -14,7 +14,7 @@ function Hero() {
 					transition={{ duration: 0.8, delay: 0.2 }}
 				>
 					<img
-						className='w-[300px] cursor-pointer rounded-full shadow-xl shadow-sky-700 transition-all duration-300 hover:-translate-y-5 hover:scale-105 hover:shadow-2xl md:w-[350px] hover:shadow-sky-600'
+						className='w-[250px] cursor-pointer rounded-full shadow-xl shadow-sky-700 transition-all duration-300 hover:-translate-y-5 hover:scale-105 hover:shadow-2xl hover:shadow-sky-600'
 						src={image}
 						alt=''
 					/>
@@ -25,7 +25,7 @@ function Hero() {
 					transition={{ duration: 0.8, delay: 0.2 }}
 					className='flex max-w-[600px] flex-col items-center justify-center gap-3 text-center'
 				>
-					<h1 className='bg-gradient-to-r from-[#e9d7cc] to-[#fa7f77] bg-clip-text text-transparent text-5xl font-light md:text-7xl'>
+					<h1 className='bg-gradient-to-r from-[#e9d7cc] to-[#fa7f77] bg-clip-text text-transparent text-3xl md:text-5xl'>
 						Josue De Los Santos
 					</h1>
 					<h3 className='bg-gradient-to-r from-[#fa7f77] to-[#e9d7cc] bg-clip-text text-transparent text-2xl font-light md:text-3xl'>

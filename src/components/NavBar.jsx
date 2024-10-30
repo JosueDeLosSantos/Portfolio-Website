@@ -1,6 +1,7 @@
 import { BsGithub, BsInstagram, BsLinkedin, BsTwitterX } from "react-icons/bs";
 import { useState } from "react";
 import { BiMenu, BiX } from "react-icons/bi";
+import { HashLink } from "react-router-hash-link";
 
 function NavBar() {
 	const [isOpen, setIsOpen] = useState(false);
@@ -11,38 +12,42 @@ function NavBar() {
 
 	return (
 		<nav className='fixed top-0 z-10 flex w-full items-center justify-between border-b border-b-slate-500 bg-[#1e3a8a]/70 px-16 py-6 text-white backdrop-blur-md md:justify-evenly'>
-			<a
-				href='#home'
+			<HashLink
+				smooth
+				to='/#home'
 				className='bg-gradient-to-r from-[#e9d7cc] to-[#fa7f77] bg-clip-text text-transparent opacity-90 font-semibold text-3xl transition-all duration-300 hover:opacity-100'
 			>
 				Josue
-			</a>
+			</HashLink>
 
 			<ul className='hidden md:flex gap-10'>
-				<a
-					href='#home'
+				<HashLink
+					smooth
+					to='/#home'
 					className='cursor-pointer opacity-70 transition-all duration-300 hover:opacity-100'
 				>
 					<li>Home</li>
-				</a>
-				<a
-					href='#tech'
+				</HashLink>
+				<HashLink
+					smooth
+					to='/#tech'
 					className='cursor-pointer opacity-70 transition-all duration-300 hover:opacity-100'
 				>
 					<li>Tech</li>
-				</a>
-				<a
-					href='#projects'
+				</HashLink>
+				<HashLink
+					to='/#projects'
 					className='cursor-pointer opacity-70 transition-all duration-300 hover:opacity-100'
 				>
 					<li>Projects</li>
-				</a>
-				<a
-					href='#contact'
+				</HashLink>
+				<HashLink
+					smooth
+					to='/#contact'
 					className='cursor-pointer opacity-70 transition-all duration-300 hover:opacity-100'
 				>
 					<li>Contact</li>
-				</a>
+				</HashLink>
 			</ul>
 
 			<ul className='hidden md:flex gap-5'>
@@ -71,6 +76,10 @@ function NavBar() {
 				</li>
 			</ul>
 
+			{/* Add option for language */}
+
+			{/* Mobile Menu */}
+
 			{isOpen ? (
 				<BiX className='block md:hidden text-4xl' onClick={toggleMenu} />
 			) : (
@@ -82,32 +91,37 @@ function NavBar() {
 					className={`fixed right-0 top-[84px] flex h-screen w-1/2 flex-col items-start justify-start gap-10 border-l border-slate-500 bg-[#1e3a8a]/90 p-12 ${
 						isOpen ? "block" : "hidden"
 					}`}
+					onClick={toggleMenu}
 				>
 					<ul className='flex flex-col gap-8'>
-						<a
-							href='#home'
+						<HashLink
+							smooth
+							to='/#home'
 							className='cursor-pointer opacity-70 transition-all duration-300 hover:opacity-100'
 						>
 							<li>Home</li>
-						</a>
-						<a
-							href='#tech'
+						</HashLink>
+						<HashLink
+							smooth
+							to='/#tech'
 							className='cursor-pointer opacity-70 transition-all duration-300 hover:opacity-100'
 						>
 							<li>Tech</li>
-						</a>
-						<a
-							href='#projects'
+						</HashLink>
+						<HashLink
+							smooth
+							to='/#projects'
 							className='cursor-pointer opacity-70 transition-all duration-300 hover:opacity-100'
 						>
 							<li>Projects</li>
-						</a>
-						<a
-							href='#contact'
+						</HashLink>
+						<HashLink
+							smooth
+							to='/#contact'
 							className='cursor-pointer opacity-70 transition-all duration-300 hover:opacity-100'
 						>
 							<li>Contact</li>
-						</a>
+						</HashLink>
 					</ul>
 					<ul className='flex flex-wrap gap-5'>
 						<li className='cursor-pointer text-xl opacity-70 transition-all duration-300 hover:opacity-100'>
