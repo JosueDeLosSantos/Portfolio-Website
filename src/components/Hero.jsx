@@ -35,8 +35,8 @@ function Hero() {
 						Software Developer
 					</h3>
 					<p className='md:text-base text-pretty text-sm text-slate-200'>
-						I’m a web developer skilled in React, TypeScript, JavaScript, CSS,
-						and Tailwind CSS. I specialize in front-end design and have a
+						I’m a software developer skilled in React, TypeScript, JavaScript,
+						CSS, and Tailwind CSS. I specialize in front-end design and have a
 						knack for creating intuitive user interfaces. I excel at
 						connecting apps with REST APIs and have strong knowledge of SQL
 						and NoSQL databases. With over two years of experience, I’m
