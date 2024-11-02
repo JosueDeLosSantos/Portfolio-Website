@@ -2,7 +2,7 @@ function Contact() {
 	return (
 		<div
 			id='contact'
-			className='flex min-h-[70vh] min-w-full items-center justify-center'
+			className='flex min-h-screen min-w-full items-center justify-center mt-32'
 		>
 			<div className='flex flex-col items-center justify-center gap-3 p-14 space-y-6'>
 				<h1 className='text-center text-5xl md:text-7xl'>

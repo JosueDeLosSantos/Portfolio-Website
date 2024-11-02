@@ -76,8 +76,6 @@ function NavBar() {
 				</li>
 			</ul>
 
-			{/* Add option for language */}
-
 			{/* Mobile Menu */}
 
 			{isOpen ? (

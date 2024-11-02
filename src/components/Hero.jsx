@@ -30,7 +30,7 @@ function Hero() {
 					</h1>
 					<h3 className='bg-gradient-to-r from-[#fa7f77] to-[#e9d7cc] bg-clip-text text-transparent text-2xl font-light md:text-3xl'>
 						{" "}
-						Web Developer
+						Software Developer
 					</h3>
 					<p className='md:text-base text-pretty text-sm text-slate-200'>
 						I’m a web developer skilled in React, TypeScript, JavaScript, CSS,
