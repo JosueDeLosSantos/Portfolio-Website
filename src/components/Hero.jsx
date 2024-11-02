@@ -1,5 +1,7 @@
 import image from "/foto-perfil.jpg";
 import { motion } from "framer-motion";
+import { FaDownload } from "react-icons/fa";
+import CV from "/JosueDeLosSantosCV.pdf";
 
 function Hero() {
 	return (
@@ -40,6 +42,15 @@ function Hero() {
 						and NoSQL databases. With over two years of experience, I’m
 						passionate about building dynamic and responsive web applications.
 					</p>
+					<a href={CV} download={"JosueDeLosSantosCV.pdf"} className='mt-8'>
+						<button
+							type='button'
+							className='flex gap-2 bg-[rgba(226,232,240,0.7)] text-[rgb(17,80,148)] px-3 py-1 rounded-full font-semibold transition-all duration-300 hover:scale-105'
+						>
+							<span>Download CV</span>
+							<FaDownload className='size-5' />
+						</button>
+					</a>
 				</motion.div>
 			</div>
 		</div>
