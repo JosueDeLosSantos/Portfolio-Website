@@ -3,22 +3,26 @@
 @tailwind utilities;
 
 * {
-	font-family: "Poppins";
-	scroll-behavior: smooth;
+  font-family: "Poppins";
+  scroll-behavior: smooth;
+}
+
+p {
+  font-family: "Inter";
 }
 
 ::-webkit-scrollbar {
-	width: 15px;
+  width: 15px;
 }
 
 ::-webkit-scrollbar-track {
-	background: #1e3a8a;
+  background: #1e3a8a;
 }
 
 ::-webkit-scrollbar-thumb {
-	background: linear-gradient(to bottom, #fa7f77, #e9d7cc);
+  background: linear-gradient(to bottom, #fa7f77, #e9d7cc);
 }
 
 .image {
-	background-color: rgba(3, 105, 161, 0.5);
+  background-color: rgba(3, 105, 161, 0.5);
 }

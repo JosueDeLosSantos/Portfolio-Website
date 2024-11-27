@@ -3,79 +3,88 @@ import { motion } from "framer-motion";
 import { JavaScriptProjects } from "../Data/projects.js";
 
 const ScrollReveal = ({ children }) => {
-	return (
-		<motion.div
-			initial={{ opacity: 0, y: 100 }}
-			whileInView={{ opacity: 1, y: 0 }}
-			viewport={{ once: true }}
-			transition={{ duration: 0.8 }}
-		>
-			{children}
-		</motion.div>
-	);
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 100 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.8 }}
+    >
+      {children}
+    </motion.div>
+  );
 };
 
 const ProjectCard = ({ project }) => {
-	return (
-		<ScrollReveal>
-			<div className='flex flex-col h-full max-w-11/12 justify-center gap-8 rounded-xl bg-[rgba(3,105,161,0.5)] pt-2 px-2 pb-4 transition-all duration-300 hover:scale-105'>
-				<div className='w-full cursor-pointer'>
-					<a href={project.view} target='_blank'>
-						<img
-							src={project.image}
-							alt=''
-							className='rounded-xl w-full object-contain'
-						/>
-					</a>
-				</div>
+  return (
+    <ScrollReveal>
+      <div className="flex flex-col h-full max-w-11/12 justify-center gap-8 rounded-xl bg-[rgba(3,105,161,0.5)] pt-2 px-2 pb-4 transition-all duration-300 hover:scale-105">
+        <div className="w-full cursor-pointer">
+          <a href={project.view} target="_blank">
+            <img
+              src={project.image}
+              alt=""
+              className="rounded-xl w-full object-contain"
+            />
+          </a>
+        </div>
 
-				<div className='flex flex-col gap-5'>
-					<div className='flex flex-col gap-3'>
-						<div className='text-xl font-semibold'>{project.title}</div>
-						<div className='text-slate-200'>{project.description}</div>
-					</div>
-					<div className='flex flex-wrap gap-5'>
-						<a href={project.link} target='_blank' className='cursor-pointer'>
-							<span className='rounded-lg bg-black py-1 px-3'>Code</span>
-						</a>
-						<a href={project.view} target='_blank' className='cursor-pointer'>
-							<span className='rounded-lg bg-black py-1 px-3'>
-								View Live
-							</span>
-						</a>
-					</div>
-				</div>
-			</div>
-		</ScrollReveal>
-	);
+        <div className="flex flex-col gap-5">
+          <div className="flex flex-col gap-3">
+            <div className="text-xl font-semibold">{project.title}</div>
+            <div className="text-slate-200">{project.description}</div>
+          </div>
+          <div className="flex flex-wrap gap-5">
+            <a href={project.link} target="_blank" className="cursor-pointer">
+              <span className="rounded-lg bg-black py-1 px-3">Code</span>
+            </a>
+            <a href={project.view} target="_blank" className="cursor-pointer">
+              <span className="rounded-lg bg-black py-1 px-3">View Live</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </ScrollReveal>
+  );
 };
 
 function Projects() {
-	return (
-		<div
-			id='projects'
-			className='flex min-h-screen w-full flex-col items-center justify-center gap-14 sm:gap-28 px-4 py-32'
-		>
-			<ScrollReveal>
-				<h1 className='text-[8vw] font-light text-white sm:text-6xl'>
-					Javascript Projects
-				</h1>
-			</ScrollReveal>
-			<div className='flex flex-col size-full max-w-[1000px] sm:grid sm:grid-cols-2 lg:grid-cols-3 text-white gap-20 sm:gap-16'>
-				{JavaScriptProjects.map((project, index) => (
-					<ProjectCard key={index} project={project} />
-				))}
-			</div>
-		</div>
-	);
+  return (
+    <div
+      id="projects"
+      className="flex min-h-screen w-full flex-col items-center justify-center gap-14 sm:gap-28 px-4 py-32"
+    >
+      <ScrollReveal>
+        <h1 className="text-[8vw] font-light text-white sm:text-6xl">
+          Javascript Projects
+        </h1>
+      </ScrollReveal>
+      <ScrollReveal>
+        <div className="max-w-[1000px] text-lg text-slate-200 font-['Inter']">
+          <p>
+            This is a collection of my earliest JavaScript projects, which mark
+            the beginning of my journey into the world of programming. These
+            projects showcase my initial foray into coding, where I learned the
+            fundamentals of JavaScript and began to develop my skills in web
+            development.
+          </p>
+        </div>
+      </ScrollReveal>
+      <div className="flex flex-col size-full max-w-[1000px] sm:grid sm:grid-cols-2 lg:grid-cols-3 text-white gap-20 sm:gap-16">
+        {JavaScriptProjects.map((project, index) => (
+          <ProjectCard key={index} project={project} />
+        ))}
+      </div>
+    </div>
+  );
 }
 
 export default Projects;
 
 ScrollReveal.propTypes = {
-	children: PropTypes.node
+  children: PropTypes.node,
 };
 
 ProjectCard.propTypes = {
-	project: PropTypes.object
+  project: PropTypes.object,
 };
