@@ -3,9 +3,10 @@ import { motion } from "framer-motion";
 import imageLoader from "../utils/imageLoader.js";
 import useSanityClient from "../hooks/useSanityClient.js";
 import { useParams, useLocation } from "react-router-dom";
-import moment from "moment";
+import { DateTime } from "luxon";
 import { FaGithub } from "react-icons/fa";
 import { FaGlobe } from "react-icons/fa";
+import useTranslation from "../hooks/useTranslation.js";
 
 const ScrollReveal = ({ children }) => {
   return (
@@ -20,9 +21,17 @@ const ScrollReveal = ({ children }) => {
   );
 };
 
-const ProjectCard = ({ project }) => {
+const ProjectCard = ({ project, language }) => {
   const projectImage = imageLoader(project);
-  const date = moment(project.endDate).format("MMM YYYY");
+  // const date = moment(project.endDate).format("MMM YYYY");
+  const rawDate = DateTime.fromISO(project.endDate);
+  const date = rawDate.toLocaleString({ month: "short", year: "numeric" });
+  const spanishDate = rawDate
+    .setLocale("es")
+    .toLocaleString({ month: "short", year: "numeric" });
+  // Translations
+  const spanishDescription = useTranslation(project.description);
+  const spanishName = useTranslation(project.name);
 
   return (
     <ScrollReveal>
@@ -41,17 +50,36 @@ const ProjectCard = ({ project }) => {
         </div>
         {/* date */}
         <div className="text-[#e2e8f0e6] mb-5 border border-[#e2e8f066] py-1 px-2 rounded-full text-xs font-['Inter'] bg-[#e2e8f033] w-fit">
-          <p className="">{date}</p>
+          <p className="">
+            {!language && date} {language && spanishDate}
+          </p>
         </div>
 
         <div className="flex flex-col gap-5 mb-8">
           {/* title and description */}
           <div className="flex flex-col gap-3 tracking-wide">
-            <div className="text-xl font-semibold">{project.name}</div>
-            <div className="text-slate-200 text-sm">{project.description}</div>
+            <div className="text-xl font-semibold">
+              {!language && project.name}
+              {language && spanishName === undefined && project.name}
+              {language && spanishName}
+            </div>
+            <div className="text-slate-200 text-sm">
+              {!language && project.description}
+              {language &&
+                spanishDescription === undefined &&
+                project.description}
+              {language && spanishDescription}
+            </div>
           </div>
           {/* technologies tags */}
-          <div className="flex flex-wrap gap-2">
+          <div
+            className="flex flex-wrap gap-2"
+            title={
+              language
+                ? "Tecnologías usadas en este proyecto"
+                : "Technologies used in this project"
+            }
+          >
             {project.technologies.map((tag) => (
               <div
                 key={tag}
@@ -71,7 +99,10 @@ const ProjectCard = ({ project }) => {
           >
             <button className=" text-[#e2e8f0e6] font-['Inter'] flex gap-1 items-start hover:underline">
               <FaGithub className="text-lg" />
-              <span>Code</span>
+              <span>
+                {!language && "Code"}
+                {language && "Código"}
+              </span>
             </button>
           </a>
           <a
@@ -81,7 +112,10 @@ const ProjectCard = ({ project }) => {
           >
             <button className=" text-[#e2e8f0e6] font-['Inter'] flex gap-1 items-start hover:underline">
               <FaGlobe className="text-lg" />
-              <span>View Live</span>
+              <span>
+                {!language && "View Live"}
+                {language && "Ver en línea"}
+              </span>
             </button>
           </a>
         </div>
@@ -90,16 +124,14 @@ const ProjectCard = ({ project }) => {
   );
 };
 
-function Projects() {
+function Projects({ language }) {
   const location = useLocation();
   const { name } = useParams(); // framework name
   const { description } = location.state;
+  const spanishDescription = useTranslation(description);
   const frameworkQuery = `*[_type == "project" && framework->name == "${name}"] | order(endDate desc) {..., endDate}`;
   const projects = useSanityClient(frameworkQuery);
   const singleProject = Array.isArray(projects) ? null : projects;
-  // if (projects?.length) {
-  //   console.log(projects[0].technologies);
-  // }
 
   return (
     <div
@@ -108,21 +140,34 @@ function Projects() {
     >
       <ScrollReveal>
         <h1 className="text-[9vw] font-light text-white sm:text-6xl">
-          {`${name} Projects`}
+          {!language && `${name} Projects`}
+          {language && `Proyectos de ${name} `}
         </h1>
       </ScrollReveal>
       <ScrollReveal>
         <div className="max-w-[1000px] text-lg text-slate-200 font-['Inter']">
-          <p>{description}</p>
+          <p>
+            {!language && description}
+            {language && typeof spanishDescription !== "string" && description}
+            {language &&
+              typeof spanishDescription === "string" &&
+              spanishDescription}
+          </p>
         </div>
       </ScrollReveal>
 
       <div className="flex flex-col size-full max-w-[1000px] sm:grid sm:grid-cols-2 lg:grid-cols-3 text-white gap-20 sm:gap-16">
         {projects?.length &&
           projects.map((project) => (
-            <ProjectCard key={project._id} project={project} />
+            <ProjectCard
+              key={project._id}
+              project={project}
+              language={language}
+            />
           ))}
-        {singleProject && <ProjectCard project={singleProject} />}
+        {singleProject && (
+          <ProjectCard project={singleProject} language={language} />
+        )}
       </div>
     </div>
   );

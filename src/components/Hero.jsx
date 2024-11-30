@@ -2,29 +2,15 @@ import { motion } from "framer-motion";
 import { FaDownload } from "react-icons/fa";
 import useSanityClient from "../hooks/useSanityClient";
 import imageLoader from "../utils/imageLoader";
-import translate from "translate";
-import { useEffect, useState } from "react";
-translate.key = import.meta.env.VITE_GOOGLE_API_KEY;
+import useTranslation from "../hooks/useTranslation";
 
-function Hero() {
-  const [translated, setTranlation] = useState("");
+function Hero({ language }) {
   const profileQuery = `*[_type == "profile"]{..., "cvUrl": cv.asset->url}`;
   const profile = useSanityClient(profileQuery);
   const profileImgUrl = imageLoader(profile, 250, 250);
-
-  useEffect(() => {
-    const translateToSpanish = async () => {
-      const translation = await translate(profile?.description, "es");
-      setTranlation(translation);
-    };
-
-    translateToSpanish();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [translated]);
-
-  if (translated.length > 0) {
-    console.log(import.meta.env.VITE_GOOGLE_API_KEY, translated);
-  }
+  // Translations
+  const spanishDescription = useTranslation(profile?.description);
+  const spanishTitle = useTranslation(profile?.title);
 
   return (
     <div
@@ -56,10 +42,16 @@ function Hero() {
           </h1>
           <h3 className="bg-gradient-to-r from-[#fa7f77] to-[#e9d7cc] bg-clip-text text-transparent text-2xl font-light md:text-3xl">
             {" "}
-            {profile?.title}
+            {!language && profile?.title}
+            {language && spanishTitle === undefined && profile?.title}
+            {language && spanishTitle}
           </h3>
           <p className="md:text-base text-pretty text-sm text-slate-200 tracking-wide">
-            {profile?.description}
+            {!language && profile?.description}
+            {language &&
+              spanishDescription === undefined &&
+              profile?.description}
+            {language && spanishDescription}
           </p>
           <a
             href={`${profile?.cvUrl}?dl=JosueDeLosSantosCV.pdf`}
@@ -70,7 +62,8 @@ function Hero() {
               type="button"
               className="flex gap-2 bg-[rgba(226,232,240,0.7)] text-[rgb(17,80,148)] px-3 py-1 rounded-full font-semibold transition-all duration-300 hover:scale-105"
             >
-              <span>Download CV</span>
+              {!language && <span>Download CV</span>}
+              {language && <span>Descargar CV</span>}
               <FaDownload className="size-5" />
             </button>
           </a>
