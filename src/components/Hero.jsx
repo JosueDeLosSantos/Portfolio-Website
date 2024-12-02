@@ -3,9 +3,10 @@ import { FaDownload } from "react-icons/fa";
 import useSanityClient from "../hooks/useSanityClient";
 import imageLoader from "../utils/imageLoader";
 import useTranslation from "../hooks/useTranslation";
+import PropTypes from "prop-types";
 
 function Hero({ language }) {
-  const profileQuery = `*[_type == "profile"]{..., "cvUrl": cv.asset->url}`;
+  const profileQuery = `*[_type == "profile"]{..., "cvUrl": cv.asset->url, "spanishCvUrl": spanishCv.asset->url}`;
   const profile = useSanityClient(profileQuery);
   const profileImgUrl = imageLoader(profile, 250, 250);
   // Translations
@@ -54,7 +55,11 @@ function Hero({ language }) {
             {language && spanishDescription}
           </p>
           <a
-            href={`${profile?.cvUrl}?dl=JosueDeLosSantosCV.pdf`}
+            href={
+              !language
+                ? `${profile?.cvUrl}?dl=JosueDeLosSantosCV.pdf`
+                : `${profile?.spanishCvUrl}?dl=JosueSpanishCV.pdf`
+            }
             download={"JosueDeLosSantosCV.pdf"}
             className="mt-8"
           >
@@ -72,5 +77,9 @@ function Hero({ language }) {
     </div>
   );
 }
+
+Hero.propTypes = {
+  language: PropTypes.bool,
+};
 
 export default Hero;

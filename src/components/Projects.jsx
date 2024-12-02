@@ -179,6 +179,11 @@ ScrollReveal.propTypes = {
   children: PropTypes.node,
 };
 
+Projects.propTypes = {
+  language: PropTypes.bool,
+};
+
 ProjectCard.propTypes = {
   project: PropTypes.object || PropTypes.array,
+  language: PropTypes.bool,
 };

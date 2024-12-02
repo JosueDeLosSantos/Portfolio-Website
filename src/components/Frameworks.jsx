@@ -107,3 +107,13 @@ export default Projects;
 ScrollReveal.propTypes = {
   children: PropTypes.node,
 };
+
+Projects.propTypes = {
+  language: PropTypes.bool,
+};
+
+FramworkCard.propTypes = {
+  frameworkImage: PropTypes.string,
+  framework: PropTypes.object,
+  language: PropTypes.bool,
+};
