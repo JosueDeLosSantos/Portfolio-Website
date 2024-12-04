@@ -24,7 +24,7 @@ function Techs({ language }) {
   return (
     <div
       id="tech"
-      className="min-h-screen pt-32 w-full flex flex-col items-center justify-center gap-16 md:gap-32"
+      className="min-h-full pt-32 w-full flex flex-col items-center justify-center gap-16 md:gap-32"
     >
       <motion.h1
         variants={variants}
