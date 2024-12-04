@@ -26,3 +26,7 @@ p {
 .image {
   background-color: rgba(3, 105, 161, 0.5);
 }
+
+.custom-full-h {
+  height: 100%;
+}
