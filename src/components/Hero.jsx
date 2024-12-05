@@ -16,7 +16,7 @@ function Hero({ language }) {
   return (
     <div
       id="home"
-      className="px-16 flex min-h-full w-full items-center justify-center py-28 md:px-32"
+      className="px-16 flex min-h-screen w-full items-center justify-center py-28 md:px-32"
     >
       <div className="flex flex-col items-center justify-center gap-10 text-white">
         <motion.div

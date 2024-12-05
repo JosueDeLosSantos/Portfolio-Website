@@ -136,7 +136,7 @@ function Projects({ language }) {
   return (
     <div
       id="projects"
-      className="flex min-h-full w-full flex-col items-center justify-center gap-14 sm:gap-28 px-4 py-32"
+      className="flex min-h-screen w-full flex-col items-center justify-center gap-14 sm:gap-28 px-4 py-32"
     >
       <ScrollReveal>
         <h1 className="text-[9vw] font-light text-white sm:text-6xl">
