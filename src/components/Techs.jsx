@@ -8,6 +8,7 @@ import {
   BiLogoTypescript,
 } from "react-icons/bi";
 import { motion } from "framer-motion";
+import PropTypes from "prop-types";
 
 function Techs({ language }) {
   const variants = {
@@ -99,5 +100,9 @@ function Techs({ language }) {
     </div>
   );
 }
+
+Techs.propTypes = {
+  language: PropTypes.bool,
+};
 
 export default Techs;

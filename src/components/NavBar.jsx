@@ -8,6 +8,7 @@ import {
 import { useState } from "react";
 import { BiMenu, BiX } from "react-icons/bi";
 import { HashLink } from "react-router-hash-link";
+import PropTypes from "prop-types";
 
 function NavBar({ toggleLanguage, language }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -223,5 +224,10 @@ function NavBar({ toggleLanguage, language }) {
     </nav>
   );
 }
+
+NavBar.propTypes = {
+  toggleLanguage: PropTypes.func,
+  language: PropTypes.bool,
+};
 
 export default NavBar;
