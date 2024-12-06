@@ -6,6 +6,7 @@ import Frameworks from "./components/Frameworks";
 import Contact from "./components/Contact";
 import Projects from "./components/Projects";
 import { useState } from "react";
+import ScrollToAnchor from "./hooks/ScrollToAnchor";
 
 const Router = () => {
   const [language, setLanguage] = useState(false);
@@ -25,6 +26,7 @@ const Router = () => {
               <Techs language={language} />
               <Frameworks language={language} />
               <Contact language={language} />
+              <ScrollToAnchor />
             </>
           ),
         },

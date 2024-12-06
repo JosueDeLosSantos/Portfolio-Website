@@ -7,7 +7,7 @@ import {
 } from "react-icons/bs";
 import { useState } from "react";
 import { BiMenu, BiX } from "react-icons/bi";
-import { HashLink } from "react-router-hash-link";
+import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 
 function NavBar({ toggleLanguage, language }) {
@@ -20,17 +20,15 @@ function NavBar({ toggleLanguage, language }) {
   return (
     <nav className="fixed top-0 z-10 flex w-full items-center justify-between border-b border-b-slate-500 bg-[#1e3a8a]/70 px-16 py-6 text-white backdrop-blur-md lg:justify-evenly">
       {/* large screens menu */}
-      <HashLink
-        smooth
+      <Link
         to="/#home"
         className="bg-gradient-to-r from-[#e9d7cc] to-[#fa7f77] bg-clip-text text-transparent opacity-90 font-semibold text-3xl transition-all duration-300 hover:opacity-100"
       >
         Josue
-      </HashLink>
+      </Link>
 
       <ul className="hidden lg:flex gap-10">
-        <HashLink
-          smooth
+        <Link
           to="/#home"
           className="cursor-pointer opacity-70 transition-all duration-300 hover:opacity-100"
         >
@@ -38,9 +36,8 @@ function NavBar({ toggleLanguage, language }) {
             {!language && "Home"}
             {language && "Inicio"}
           </li>
-        </HashLink>
-        <HashLink
-          smooth
+        </Link>
+        <Link
           to="/#tech"
           className="cursor-pointer opacity-70 transition-all duration-300 hover:opacity-100"
         >
@@ -49,8 +46,8 @@ function NavBar({ toggleLanguage, language }) {
             {!language && "Tech"}
             {language && "Tecnologías"}
           </li>
-        </HashLink>
-        <HashLink
+        </Link>
+        <Link
           to="/#projects"
           className="cursor-pointer opacity-70 transition-all duration-300 hover:opacity-100"
         >
@@ -59,9 +56,8 @@ function NavBar({ toggleLanguage, language }) {
             {!language && "Projects"}
             {language && "Proyectos"}
           </li>
-        </HashLink>
-        <HashLink
-          smooth
+        </Link>
+        <Link
           to="/#contact"
           className="cursor-pointer opacity-70 transition-all duration-300 hover:opacity-100"
         >
@@ -70,7 +66,7 @@ function NavBar({ toggleLanguage, language }) {
             {!language && "Contact"}
             {language && "Contacto"}
           </li>
-        </HashLink>
+        </Link>
       </ul>
 
       <ul className="hidden lg:flex gap-5">
@@ -140,8 +136,7 @@ function NavBar({ toggleLanguage, language }) {
           onClick={toggleMenu}
         >
           <ul className="flex flex-col gap-8">
-            <HashLink
-              smooth
+            <Link
               to="/#home"
               className="cursor-pointer opacity-70 transition-all duration-300 hover:opacity-100"
             >
@@ -150,9 +145,8 @@ function NavBar({ toggleLanguage, language }) {
                 {!language && "Home"}
                 {language && "Inicio"}
               </li>
-            </HashLink>
-            <HashLink
-              smooth
+            </Link>
+            <Link
               to="/#tech"
               className="cursor-pointer opacity-70 transition-all duration-300 hover:opacity-100"
             >
@@ -160,9 +154,8 @@ function NavBar({ toggleLanguage, language }) {
                 {!language && "Tech"}
                 {language && "Tecnologías"}
               </li>
-            </HashLink>
-            <HashLink
-              smooth
+            </Link>
+            <Link
               to="/#projects"
               className="cursor-pointer opacity-70 transition-all duration-300 hover:opacity-100"
             >
@@ -170,9 +163,8 @@ function NavBar({ toggleLanguage, language }) {
                 {!language && "Projects"}
                 {language && "Proyectos"}
               </li>
-            </HashLink>
-            <HashLink
-              smooth
+            </Link>
+            <Link
               to="/#contact"
               className="cursor-pointer opacity-70 transition-all duration-300 hover:opacity-100"
             >
@@ -180,7 +172,7 @@ function NavBar({ toggleLanguage, language }) {
                 {!language && "Contact"}
                 {language && "Contacto"}
               </li>
-            </HashLink>
+            </Link>
           </ul>
           <ul className="flex flex-wrap gap-5">
             <li className="cursor-pointer text-xl opacity-70 transition-all duration-300 hover:opacity-100">
