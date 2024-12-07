@@ -3,6 +3,8 @@ import { FaDownload } from "react-icons/fa";
 import useSanityClient from "../hooks/useSanityClient";
 import imageLoader from "../utils/imageLoader";
 import useTranslation from "../hooks/useTranslation";
+import { Link } from "react-router-dom";
+import { LiaCertificateSolid } from "react-icons/lia";
 import PropTypes from "prop-types";
 
 function Hero({ language }) {
@@ -72,6 +74,22 @@ function Hero({ language }) {
               <FaDownload className="size-5" />
             </button>
           </a>
+        </motion.div>
+        <motion.div
+          initial={{ y: 50, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+        >
+          <Link to="/certifications">
+            <button
+              type="button"
+              className="flex gap-1 underline underline-offset-4 text-[rgba(226,232,240,0.9)] transition-all duration-300 hover:scale-105 tracking-wide text-lg"
+            >
+              <LiaCertificateSolid className="size-7" />
+              {!language && <span>Certifications</span>}
+              {language && <span>Certificaciones</span>}
+            </button>
+          </Link>
         </motion.div>
       </div>
     </div>

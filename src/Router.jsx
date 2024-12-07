@@ -5,6 +5,7 @@ import Techs from "./components/Techs";
 import Frameworks from "./components/Frameworks";
 import Contact from "./components/Contact";
 import Projects from "./components/Projects";
+import Certifications from "./components/Certifications";
 import { useState } from "react";
 import ScrollToAnchor from "./hooks/ScrollToAnchor";
 
@@ -33,6 +34,10 @@ const Router = () => {
         {
           path: "/frameworks/:name",
           element: <Projects language={language} />,
+        },
+        {
+          path: "/certifications",
+          element: <Certifications language={language} />,
         },
       ],
     },

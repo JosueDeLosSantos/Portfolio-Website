@@ -35,7 +35,7 @@ const ProjectCard = ({ project, language }) => {
 
   return (
     <ScrollReveal>
-      <div className="flex flex-col h-full max-w-11/12 rounded-xl bg-[rgba(3,105,161,0.5)] pt-2 px-2 pb-4 transition-all duration-300 hover:scale-105">
+      <div className="flex flex-col h-full justify-between max-w-11/12 rounded-xl bg-[rgba(3,105,161,0.5)] p-2 pb-4 transition-all duration-300 hover:scale-105">
         {/* image */}
         <div className="w-full cursor-pointer mb-5">
           <a href={project.livePreview} target="_blank">
@@ -49,7 +49,7 @@ const ProjectCard = ({ project, language }) => {
           </a>
         </div>
         {/* date */}
-        <div className="text-[#e2e8f0e6] mb-5 border border-[#e2e8f066] py-1 px-2 rounded-full text-xs font-['Inter'] bg-[#e2e8f033] w-fit">
+        <div className="text-[#e2e8f0e6] mb-5 border border-[#e2e8f066] py-1 px-2 rounded-sm text-xs font-['Inter'] bg-[#e2e8f033] w-fit">
           <p className="">
             {!language && date} {language && spanishDate}
           </p>
@@ -63,6 +63,24 @@ const ProjectCard = ({ project, language }) => {
               {language && spanishName === undefined && project.name}
               {language && spanishName}
             </div>
+            {/* technologies tags */}
+            <div
+              className="flex flex-wrap gap-2"
+              title={
+                language
+                  ? "Tecnologías usadas en este proyecto"
+                  : "Technologies used in this project"
+              }
+            >
+              {project.technologies.map((tag) => (
+                <div
+                  key={tag}
+                  className="py-1 px-2 rounded text-xs font-['Inter'] bg-black"
+                >
+                  {tag}
+                </div>
+              ))}
+            </div>
             <div className="text-slate-200 text-sm">
               {!language && project.description}
               {language &&
@@ -71,34 +89,16 @@ const ProjectCard = ({ project, language }) => {
               {language && spanishDescription}
             </div>
           </div>
-          {/* technologies tags */}
-          <div
-            className="flex flex-wrap gap-2"
-            title={
-              language
-                ? "Tecnologías usadas en este proyecto"
-                : "Technologies used in this project"
-            }
-          >
-            {project.technologies.map((tag) => (
-              <div
-                key={tag}
-                className="py-1 px-2 rounded text-xs font-['Inter'] bg-black"
-              >
-                {tag}
-              </div>
-            ))}
-          </div>
         </div>
         {/* links */}
-        <div className="flex flex-wrap gap-8">
+        <div className="flex flex-wrap gap-8 text-sm">
           <a
             href={project.githubLink}
             target="_blank"
             className="cursor-pointer"
           >
-            <button className=" text-[#e2e8f0e6] font-['Inter'] flex gap-1 items-start hover:underline">
-              <FaGithub className="text-lg" />
+            <button className=" text-[#e2e8f0e6] hover:text-slate-200 font-['Inter'] flex gap-1 items-center hover:underline hover:underline-offset-4">
+              <FaGithub className="size-4" />
               <span>
                 {!language && "Code"}
                 {language && "Código"}
@@ -110,8 +110,8 @@ const ProjectCard = ({ project, language }) => {
             target="_blank"
             className="cursor-pointer"
           >
-            <button className=" text-[#e2e8f0e6] font-['Inter'] flex gap-1 items-start hover:underline">
-              <FaGlobe className="text-lg" />
+            <button className=" text-[#e2e8f0e6] hover:text-slate-200 font-['Inter'] flex gap-1 items-center hover:underline hover:underline-offset-4">
+              <FaGlobe className="size-4" />
               <span>
                 {!language && "View Live"}
                 {language && "Ver en línea"}
@@ -134,12 +134,9 @@ function Projects({ language }) {
   const singleProject = Array.isArray(projects) ? null : projects;
 
   return (
-    <div
-      id="projects"
-      className="flex min-h-screen w-full flex-col items-center justify-center gap-14 sm:gap-28 px-4 py-32"
-    >
+    <div className="flex min-h-screen w-full flex-col items-center justify-center gap-14 sm:gap-20 px-4 py-32">
       <ScrollReveal>
-        <h1 className="text-[9vw] font-light text-white sm:text-6xl">
+        <h1 className="text-[9vw] font-light text-white sm:text-5xl">
           {!language && `${name} Projects`}
           {language && `Proyectos de ${name} `}
         </h1>

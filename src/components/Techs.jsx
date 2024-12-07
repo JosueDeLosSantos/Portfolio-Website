@@ -32,7 +32,7 @@ function Techs({ language }) {
         initial="hidden"
         whileInView="visible"
         transition={{ duration: 0.5 }}
-        className="text-4xl font-light text-white md:text-6xl"
+        className="text-4xl font-light text-white md:text-5xl"
       >
         {!language && "Technologies"}
         {language && "Tecnologías"}

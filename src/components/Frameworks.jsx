@@ -27,7 +27,7 @@ function Projects({ language }) {
       id="projects"
       className="flex min-h-screen w-full flex-col items-center justify-center gap-16 md:gap-28 pt-32 px-4 md:px-8 md:py-24"
     >
-      <h1 className="text-4xl font-light text-white md:text-6xl">
+      <h1 className="text-4xl font-light text-white md:text-5xl">
         {!language && "Projects"}
         {language && "Proyectos"}
       </h1>
