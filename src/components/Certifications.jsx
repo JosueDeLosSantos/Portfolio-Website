@@ -145,13 +145,25 @@ function Certifications({ language }) {
       </ScrollReveal>
       <ScrollReveal>
         <div className="max-w-[1000px] text-lg text-slate-200 font-['Inter']">
-          <p>
-            This list showcases all my certifications, which complement and
-            enhance my software engineering experience. Each certification
-            represents a commitment to continuous learning and professional
-            growth, covering a range of skills, ensuring a well-rounded and
-            up-to-date expertise in the field.
-          </p>
+          {!language && (
+            <p>
+              This list showcases all my certifications, which complement and
+              enhance my software engineering experience. Each certification
+              represents a commitment to continuous learning and professional
+              growth, covering a range of skills, ensuring a well-rounded and
+              up-to-date expertise in the field.
+            </p>
+          )}
+          {language && (
+            <p>
+              Esta lista muestra todas mis certificaciones, que complementan y
+              mejoran mi experiencia en ingeniería de software. Cada
+              certificación representa un compromiso con el aprendizaje continuo
+              y el crecimiento profesional, que abarca una variedad de
+              habilidades, lo que garantiza una experiencia completa y
+              actualizada en el campo.
+            </p>
+          )}
         </div>
       </ScrollReveal>
       <div className="flex flex-col text-white  md:max-xl:grid md:max-xl:grid-cols-2 lg:max-xl:grid-cols-3 gap-16">
