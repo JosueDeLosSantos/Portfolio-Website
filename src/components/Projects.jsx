@@ -1,3 +1,4 @@
+import { useEffect, useState, useRef } from "react";
 import PropTypes from "prop-types";
 import { motion } from "framer-motion";
 import imageLoader from "../utils/imageLoader.js";
@@ -23,7 +24,6 @@ const ScrollReveal = ({ children }) => {
 
 const ProjectCard = ({ project, language }) => {
   const projectImage = imageLoader(project);
-  // const date = moment(project.endDate).format("MMM YYYY");
   const rawDate = DateTime.fromISO(project.endDate);
   const date = rawDate.toLocaleString({ month: "short", year: "numeric" });
   const spanishDate = rawDate
@@ -33,18 +33,48 @@ const ProjectCard = ({ project, language }) => {
   const spanishDescription = useTranslation(project.description);
   const spanishName = useTranslation(project.name);
 
+  const [videoPlaying, setVideoPlaying] = useState(false);
+  const videoRef = useRef(null);
+
+  useEffect(() => {
+    if (videoRef.current === null) return;
+    if (videoPlaying) {
+      videoRef.current.currentTime = 0;
+      videoRef.current.play();
+    } else {
+      videoRef.current.pause();
+    }
+  }, [videoPlaying]);
+
   return (
     <ScrollReveal>
       <div className="flex flex-col h-full justify-between max-w-11/12 rounded-xl bg-[rgba(3,105,161,0.5)] p-2 pb-4 transition-all duration-300 hover:scale-105">
         {/* image */}
-        <div className="w-full cursor-pointer mb-5">
-          <a href={project.livePreview} target="_blank">
+        <div
+          className="w-full cursor-pointer mb-5"
+          onMouseEnter={() => setVideoPlaying(true)}
+          onMouseLeave={() => setVideoPlaying(false)}
+        >
+          <a
+            href={project.livePreview}
+            target="_blank"
+            className="relative aspect-video"
+          >
             <img
               src={projectImage || "https://placehold.co/275x220/png"}
               alt=""
               className="rounded w-full object-contain"
               width={275}
               height={220}
+            />
+            <video
+              className={`absolute inset-0 block aspect-video h-full object-cover transition-opacity duration-200 ${
+                videoPlaying ? "opacity-100 delay-200" : "opacity-0"
+              }`}
+              ref={videoRef}
+              muted
+              playsInline
+              src={project.videoUrl}
             />
           </a>
         </div>
@@ -127,9 +157,9 @@ const ProjectCard = ({ project, language }) => {
 function Projects({ language }) {
   const location = useLocation();
   const { name } = useParams(); // framework name
-  const { description } = location.state;
+  const description = location.state?.description;
   const spanishDescription = useTranslation(description);
-  const frameworkQuery = `*[_type == "project" && framework->name == "${name}"] | order(endDate desc) {..., endDate}`;
+  const frameworkQuery = `*[_type == "project" && framework->name == "${name}"]{..., "videoUrl": video.asset->url} | order(endDate desc) {..., endDate}`;
   const projects = useSanityClient(frameworkQuery);
   const singleProject = Array.isArray(projects) ? null : projects;
 

@@ -7,6 +7,7 @@ import {
   BiLogoTailwindCss,
   BiLogoTypescript,
 } from "react-icons/bi";
+import { RiNextjsLine } from "react-icons/ri";
 import { motion } from "framer-motion";
 import PropTypes from "prop-types";
 
@@ -45,7 +46,10 @@ function Techs({ language }) {
           whileInView="visible"
           transition={{ duration: 0.5 }}
         >
-          <BiLogoReact className="cursor pointer text-[80px] text-sky-500 transition-all duration-300 hover:-translate-y-5 sm:text-[100px] md:text-[120px]" />
+          <RiNextjsLine
+            title="NextJS"
+            className="cursor pointer text-[80px] text-white transition-all duration-300 hover:-translate-y-5 sm:text-[100px] md:text-[120px]"
+          />
         </motion.div>
         <motion.div
           variants={variants}
@@ -53,7 +57,10 @@ function Techs({ language }) {
           whileInView="visible"
           transition={{ duration: 0.5 }}
         >
-          <BiLogoTypescript className="cursor pointer text-[80px] text-sky-500 transition-all duration-300 hover:-translate-y-5 sm:text-[100px] md:text-[120px]" />
+          <BiLogoReact
+            title="React"
+            className="cursor pointer text-[80px] text-sky-500 transition-all duration-300 hover:-translate-y-5 sm:text-[100px] md:text-[120px]"
+          />
         </motion.div>
         <motion.div
           variants={variants}
@@ -61,7 +68,10 @@ function Techs({ language }) {
           whileInView="visible"
           transition={{ duration: 0.5 }}
         >
-          <BiLogoJavascript className="cursor pointer text-[80px] text-yellow-400 transition-all duration-300 hover:-translate-y-5 sm:text-[100px] md:text-[120px]" />
+          <BiLogoTypescript
+            title="TypeScript"
+            className="cursor pointer text-[80px] text-sky-500 transition-all duration-300 hover:-translate-y-5 sm:text-[100px] md:text-[120px]"
+          />
         </motion.div>
         <motion.div
           variants={variants}
@@ -69,7 +79,21 @@ function Techs({ language }) {
           whileInView="visible"
           transition={{ duration: 0.5 }}
         >
-          <BiLogoPostgresql className="cursor pointer text-[80px] text-sky-500 transition-all duration-300 hover:-translate-y-5 sm:text-[100px] md:text-[120px]" />
+          <BiLogoJavascript
+            title="JavaScript"
+            className="cursor pointer text-[80px] text-yellow-400 transition-all duration-300 hover:-translate-y-5 sm:text-[100px] md:text-[120px]"
+          />
+        </motion.div>
+        <motion.div
+          variants={variants}
+          initial="hidden"
+          whileInView="visible"
+          transition={{ duration: 0.5 }}
+        >
+          <BiLogoPostgresql
+            title="PostgreSQL"
+            className="cursor pointer text-[80px] text-sky-500 transition-all duration-300 hover:-translate-y-5 sm:text-[100px] md:text-[120px]"
+          />
         </motion.div>
 
         <motion.div
@@ -78,7 +102,10 @@ function Techs({ language }) {
           whileInView="visible"
           transition={{ duration: 0.5 }}
         >
-          <BiLogoTailwindCss className="cursor pointer text-[80px] text-sky-400 transition-all duration-300 hover:-translate-y-5 sm:text-[100px] md:text-[120px]" />
+          <BiLogoTailwindCss
+            title="TailwindCSS"
+            className="cursor pointer text-[80px] text-sky-400 transition-all duration-300 hover:-translate-y-5 sm:text-[100px] md:text-[120px]"
+          />
         </motion.div>
         <motion.div
           variants={variants}
@@ -86,7 +113,10 @@ function Techs({ language }) {
           whileInView="visible"
           transition={{ duration: 0.5 }}
         >
-          <BiLogoNodejs className="cursor pointer text-[80px] text-green-400 transition-all duration-300 hover:-translate-y-5 sm:text-[100px] md:text-[120px]" />
+          <BiLogoNodejs
+            title="NodeJS"
+            className="cursor pointer text-[80px] text-green-400 transition-all duration-300 hover:-translate-y-5 sm:text-[100px] md:text-[120px]"
+          />
         </motion.div>
         <motion.div
           variants={variants}
@@ -94,7 +124,10 @@ function Techs({ language }) {
           whileInView="visible"
           transition={{ duration: 0.5 }}
         >
-          <BiLogoMongodb className="cursor pointer text-[80px] text-green-500 transition-all duration-300 hover:-translate-y-5 sm:text-[100px] md:text-[120px]" />
+          <BiLogoMongodb
+            title="MongoDB"
+            className="cursor pointer text-[80px] text-green-500 transition-all duration-300 hover:-translate-y-5 sm:text-[100px] md:text-[120px]"
+          />
         </motion.div>
       </div>
     </div>
