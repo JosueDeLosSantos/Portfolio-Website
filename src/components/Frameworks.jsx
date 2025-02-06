@@ -19,7 +19,7 @@ const ScrollReveal = ({ children }) => {
 };
 
 function Projects({ language }) {
-  const frameworksQuery = `*[_type == "framework"]`;
+  const frameworksQuery = `*[_type == "framework"] | order(_createdAt asc)`;
   const frameworks = useSanityClient(frameworksQuery);
 
   return (
