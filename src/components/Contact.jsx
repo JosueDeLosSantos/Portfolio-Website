@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { CgSpinner } from "react-icons/cg";
+import PropTypes from "prop-types";
 
 function Contact({ language }) {
   const [waiting, setWaiting] = useState(false);
@@ -53,5 +54,9 @@ function Contact({ language }) {
     </div>
   );
 }
+
+Contact.propTypes = {
+  language: PropTypes.bool,
+};
 
 export default Contact;

@@ -1,8 +1,6 @@
 import { motion } from "framer-motion";
 import { FaDownload } from "react-icons/fa";
 import useSanityClient from "../hooks/useSanityClient";
-import imageLoader from "../utils/imageLoader";
-import useTranslation from "../hooks/useTranslation";
 import { Link } from "react-router-dom";
 import { LiaCertificateSolid } from "react-icons/lia";
 import PropTypes from "prop-types";
@@ -10,10 +8,6 @@ import PropTypes from "prop-types";
 function Hero({ language }) {
   const profileQuery = `*[_type == "profile"]{..., "cvUrl": cv.asset->url, "spanishCvUrl": spanishCv.asset->url}`;
   const profile = useSanityClient(profileQuery);
-  const profileImgUrl = imageLoader(profile, 250, 250);
-  // Translations
-  const spanishDescription = useTranslation(profile?.description);
-  const spanishTitle = useTranslation(profile?.title);
 
   return (
     <div
@@ -28,7 +22,7 @@ function Hero({ language }) {
         >
           <img
             className="cursor-pointer rounded-full shadow-xl shadow-sky-700 transition-all duration-300 hover:-translate-y-5 hover:scale-105 hover:shadow-2xl hover:shadow-sky-600"
-            src={profileImgUrl}
+            src="/foto-perfil.jpg"
             alt="Profile Image"
             width={250}
             height={250}
@@ -41,20 +35,19 @@ function Hero({ language }) {
           className="flex max-w-[600px] flex-col items-center justify-center gap-3 text-center"
         >
           <h1 className="bg-gradient-to-r from-[#e9d7cc] to-[#fa7f77] bg-clip-text text-transparent text-3xl md:text-5xl">
-            {profile?.name}
+            {"Josue De Los Santos"}
           </h1>
           <h3 className="bg-gradient-to-r from-[#fa7f77] to-[#e9d7cc] bg-clip-text text-transparent text-2xl font-light md:text-3xl">
             {" "}
-            {!language && profile?.title}
-            {language && spanishTitle === undefined && profile?.title}
-            {language && spanishTitle}
+            {!language && "Software Developer"}
+            {language && "Desarrollador de software"}
           </h3>
           <p className="md:text-base text-pretty text-sm text-slate-200 tracking-wide">
-            {!language && profile?.description}
+            {!language &&
+              "I’m a software developer skilled in React, TypeScript, JavaScript, CSS, and Tailwind CSS. I specialize in front-end design and have a knack for creating intuitive user interfaces. I excel at connecting apps with REST APIs and have strong knowledge of SQL and NoSQL databases. With over two years of experience, I’m passionate about building dynamic and responsive web applications."}
+
             {language &&
-              spanishDescription === undefined &&
-              profile?.description}
-            {language && spanishDescription}
+              "Soy un desarrollador de software experto en React, TypeScript, JavaScript, CSS y Tailwind CSS. Me especializo en diseño front-end y tengo una habilidad especial para crear interfaces de usuario intuitivas. Me destaco en conectar aplicaciones con API REST y tengo un fuerte conocimiento de las bases de datos SQL y NoSQL. Con más de dos años de experiencia, me apasiona construir aplicaciones web dinámicas y receptivas."}
           </p>
           <a
             href={
