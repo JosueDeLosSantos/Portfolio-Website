@@ -46,4 +46,4 @@ A live version of the portfolio is available here: [Portfolio Website](https://p
 
 ---
 
-Live preview of the Sanity CMS for this project (only for admins) at: https://portfolio-josuedelossantos-cms.sanity.studio/
+Live preview of the Sanity CMS for this project (only for admins) at: [Portfolio CMS](https://portfolio-josuedelossantos-cms.sanity.studio/)
